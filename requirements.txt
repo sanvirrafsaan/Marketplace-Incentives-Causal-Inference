@@ -1,0 +1,14 @@
+# Core analytics stack for Marketplace Incentives project.
+# Install: pip install -r requirements.txt  (inside activated .venv)
+# Transitive dependencies (Jupyter server, etc.) install automatically.
+
+duckdb==1.5.3
+ipykernel==7.2.0
+jupyter==1.1.1
+matplotlib==3.10.9
+numpy==2.4.6
+pandas==3.0.3
+plotly==6.7.0
+scipy==1.17.1
+seaborn==0.13.2
+statsmodels==0.14.6

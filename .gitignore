@@ -1,0 +1,28 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data & databases (large / local only)
+data/raw/
+data/**/*.csv
+data/**/*.parquet
+*.db
+*.duckdb
+
+# Secrets
+.env
+.kaggle/
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
