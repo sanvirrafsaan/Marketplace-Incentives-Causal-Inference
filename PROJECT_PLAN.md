@@ -4,6 +4,8 @@
 **Dataset:** [Olist Brazilian E-Commerce](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) (~100K orders, 9 tables)  
 **Scope:** Project 1 only. Event-level funnel work (Project 2) is a separate portfolio piece later.
 
+> **Canonical reference:** See [MASTERPLAN.md](MASTERPLAN.md) for the complete plan (definitions of done + acceptance checks).
+
 ---
 
 ## Goals
