@@ -2,7 +2,7 @@
 
 Quasi-experimental analysis on [Olist Brazilian E-Commerce](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) data: multi-table SQL pipeline, simulated regional incentive rollout, difference-in-differences with bootstrap confidence intervals, and a prospective experiment design.
 
-**Status:** In progress — Week 1 (data ingestion & quality audit)
+**Status:** In progress — Week 1 complete (mart + outcome EDA); Week 2 next (treatment definition)
 
 ---
 
@@ -66,9 +66,10 @@ erDiagram
 
 | Item | Current state |
 |------|----------------|
-| **Data** | 99,441 orders (Sep 2016 – Oct 2018); 9 raw tables loaded in [`01_data_ingestion.ipynb`](notebooks/01_data_ingestion.ipynb) |
-| **Quality** | Delivery timestamps null for non-delivered orders (expected); 8 delivered exceptions (~0.01%) |
-| **Mart** | `orders_analytical` — not built yet |
+| **Data** | 99,441 orders (Sep 2016 – Oct 2018); 9 raw tables in DuckDB (`data/olist.db`) |
+| **Quality** | Delivery timestamps null for non-delivered orders (expected); grain check passes |
+| **Mart** | `orders_analytical` built — one row per `order_id`, `on_time` + `delivery_days` defined |
+| **EDA** | Delivery-days distribution, on-time by state, monthly volume; candidate treated states SP/RJ/MG |
 | **Treatment** | Simulated regional rollout — Week 2 |
 | **Causal estimate** | DiD + bootstrap CI — Week 3 |
 | **Recommendation** | Decision memo — Week 5 |
@@ -77,11 +78,12 @@ erDiagram
 
 ## Insights deep dive
 
-*Placeholder — populated after EDA (Week 1) and DiD (Week 3).*
+**Week 1 EDA (from `01_data_ingestion.ipynb`):**
+- ~96.5K delivered orders; platform on-time rate ~93% among delivered
+- SP, RJ, MG are top-volume states — provisional treated group for Week 2
+- Pre-cutoff window is ~8 months (Sep 2016 – May 2017); post-cutoff dominates volume
 
-Planned sections:
-
-- Outcome distributions (`delivery_days`, on-time rate by state and month)
+*Still to come after Week 2–3:*
 - Pre-period balance (treated vs control states)
 - Parallel trends and DiD estimate with 95% CI
 - Sensitivity to cutoff date
