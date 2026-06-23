@@ -65,9 +65,9 @@ Marketplace-Incentives-Causal-Inference/
 
 | Week | Focus | Status | Deliverable |
 |------|--------|--------|-------------|
-| **0** | Environment + data download | Setup in repo; **you** download Kaggle data | `requirements.txt`, venv, 9 CSVs in `data/raw/olist/` |
-| **1** | Ingestion + EDA | Pending | `01_data_ingestion.ipynb`, `data/olist.db`, `orders_analytical` |
-| **2** | Treatment + DAG | Pending | `02_treatment_definition.ipynb`, balance table |
+| **0** | Environment + data download | Complete ✓ | `requirements.txt`, venv, 9 CSVs in `data/raw/olist/` |
+| **1** | Ingestion + EDA | Complete ✓ | `01_data_ingestion.ipynb`, `data/olist.db`, `orders_analytical` |
+| **2** | Treatment + DAG | In progress | `02_treatment_definition.ipynb`, balance table |
 | **3** | DiD + inference | Pending | `03_diff_in_diff_analysis.ipynb`, parallel trends, bootstrap CI |
 | **4** | Experiment design | Pending | `docs/04_experiment_design.md`, power script |
 | **5** | Polish | Pending | README, `05_decision_memo.md`, GitHub, resume bullets |
@@ -252,7 +252,9 @@ Pitch a **real** randomized rollout after the quasi-experiment. Sections:
 
 ## Your next action
 
-1. Read [docs/ENVIRONMENT.md](docs/ENVIRONMENT.md) and activate `.venv`
-2. Download Olist CSVs to `data/raw/olist/`
-3. Create `notebooks/01_data_ingestion.ipynb` — load **only** `orders`, print schema and date range
-4. Share row count + min/max dates when ready for join design help
+Week 1 complete. Next: build `notebooks/02_treatment_definition.ipynb`.
+
+1. Define `incentive_flag` in SQL (`treated_region AND post`), verify 4-cell crosstab (treated/control × pre/post)
+2. Draw a DAG (Mermaid) with at least 2 confounders; write a short threat assessment
+3. Build pre-period balance table (pre-cutoff only, delivered only, treated vs control) with `n_orders`, `on_time_rate`, `avg_delivery_days`, `avg_n_items`, `avg_gross_revenue`, `avg_freight_total`
+4. Document RJ baseline gap (~88% vs ~95% for SP/MG) and what it implies for parallel trends
