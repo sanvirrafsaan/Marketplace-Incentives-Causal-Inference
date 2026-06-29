@@ -69,8 +69,8 @@ Marketplace-Incentives-Causal-Inference/
 | **1** | Ingestion + EDA | Complete ✓ | `01_data_ingestion.ipynb`, `data/olist.db`, `orders_analytical` |
 | **2** | Treatment + DAG | Complete ✓ | `02_treatment_definition.ipynb`, balance table |
 | **3** | DiD + inference | Complete ✓ | `03_diff_in_diff_analysis.ipynb`, parallel trends, bootstrap CI |
-| **4** | Experiment design | In progress | `docs/04_experiment_design.md`, power script |
-| **5** | Polish | Pending | README, `05_decision_memo.md`, GitHub, resume bullets |
+| **4** | Experiment design | Complete ✓ | `docs/04_experiment_design.md`, `scripts/power_analysis.py` |
+| **5** | Polish | Complete ✓ | README, `docs/05_decision_memo.md`, resume bullets |
 
 ---
 
@@ -252,10 +252,8 @@ Pitch a **real** randomized rollout after the quasi-experiment. Sections:
 
 ## Your next action
 
-Week 3 complete. Next: write `docs/04_experiment_design.md` + optional `scripts/power_analysis.py`.
+**Project shipped (Weeks 0–5 complete).** Optional follow-ups when revisiting the repo:
 
-1. State hypothesis and unit of randomization (e.g. zone-weeks in treated states)
-2. Define north-star metric (`on_time` rate) and guardrails (cost, satisfaction)
-3. Power analysis: baseline ~93%, MDE ~2 pp, α=0.05, power=0.80 — compute required sample / duration
-4. Feasibility vs Olist volume; failure modes (spillover, gaming, novelty)
-5. Frame as prospective A/B that would validate what the quasi-experiment cannot prove
+1. Interview prep — rehearse 90-second story; drill power analysis (Cohen's h, DEFF, ICC)
+2. Stretch — cluster bootstrap; ICC sensitivity in `power_analysis.py`
+3. Learning sprints — use `docs/DiD_CONCEPTUAL_REFERENCE.md` + focused Cursor chats
