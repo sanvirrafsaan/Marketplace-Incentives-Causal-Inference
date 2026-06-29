@@ -67,9 +67,9 @@ Marketplace-Incentives-Causal-Inference/
 |------|--------|--------|-------------|
 | **0** | Environment + data download | Complete ✓ | `requirements.txt`, venv, 9 CSVs in `data/raw/olist/` |
 | **1** | Ingestion + EDA | Complete ✓ | `01_data_ingestion.ipynb`, `data/olist.db`, `orders_analytical` |
-| **2** | Treatment + DAG | In progress | `02_treatment_definition.ipynb`, balance table |
-| **3** | DiD + inference | Pending | `03_diff_in_diff_analysis.ipynb`, parallel trends, bootstrap CI |
-| **4** | Experiment design | Pending | `docs/04_experiment_design.md`, power script |
+| **2** | Treatment + DAG | Complete ✓ | `02_treatment_definition.ipynb`, balance table |
+| **3** | DiD + inference | Complete ✓ | `03_diff_in_diff_analysis.ipynb`, parallel trends, bootstrap CI |
+| **4** | Experiment design | In progress | `docs/04_experiment_design.md`, power script |
 | **5** | Polish | Pending | README, `05_decision_memo.md`, GitHub, resume bullets |
 
 ---
@@ -252,9 +252,10 @@ Pitch a **real** randomized rollout after the quasi-experiment. Sections:
 
 ## Your next action
 
-Week 1 complete. Next: build `notebooks/02_treatment_definition.ipynb`.
+Week 3 complete. Next: write `docs/04_experiment_design.md` + optional `scripts/power_analysis.py`.
 
-1. Define `incentive_flag` in SQL (`treated_region AND post`), verify 4-cell crosstab (treated/control × pre/post)
-2. Draw a DAG (Mermaid) with at least 2 confounders; write a short threat assessment
-3. Build pre-period balance table (pre-cutoff only, delivered only, treated vs control) with `n_orders`, `on_time_rate`, `avg_delivery_days`, `avg_n_items`, `avg_gross_revenue`, `avg_freight_total`
-4. Document RJ baseline gap (~88% vs ~95% for SP/MG) and what it implies for parallel trends
+1. State hypothesis and unit of randomization (e.g. zone-weeks in treated states)
+2. Define north-star metric (`on_time` rate) and guardrails (cost, satisfaction)
+3. Power analysis: baseline ~93%, MDE ~2 pp, α=0.05, power=0.80 — compute required sample / duration
+4. Feasibility vs Olist volume; failure modes (spillover, gaming, novelty)
+5. Frame as prospective A/B that would validate what the quasi-experiment cannot prove

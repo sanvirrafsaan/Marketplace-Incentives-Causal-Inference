@@ -16,6 +16,7 @@ data/raw/
 data/**/*.csv
 data/**/*.parquet
 *.db
+*.db.wal
 *.duckdb
 
 # Secrets
